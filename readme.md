@@ -1,25 +1,9 @@
-# Calculadora de Média
+Este código é um programa em linguagem C que simula o cadastro de hóspedes em um hotel, permitindo o check-in, check-out e verificação da disponibilidade de quartos.
 
-Este programa em C lê uma série de números, calcula a média e separa os números em dois grupos: menores que a média e maiores ou iguais à média.
+O programa faz uso de duas structs: hospede e quarto. A struct hospede armazena as informações do hóspede, como nome, número do quarto, quantidade de acompanhantes, categoria (solteiro ou familiar) e tempo de permanência em dias. Já a struct quarto armazena as informações do quarto, como número, categoria e status (livre ou ocupado).
 
-## Compilação
+O programa inicia alocando memória para um vetor de 15 quartos, utilizando a função "aloca_quarto". Em seguida, chama a função "cadastro_quarto" para preencher as informações dos quartos.
 
-Para compilar este programa, use o compilador GCC com o seguinte comando:
+O menu principal do programa tem três opções: check-in, check-out e fim. Ao escolher a opção de check-in, o programa aloca memória para uma nova struct hospede utilizando a função "aloca_hospede". Em seguida, chama a função "cadastro_hospede" para preencher as informações do hóspede, como nome, quantidade de acompanhantes e tempo de permanência. A função "busca_quarto" é utilizada para verificar se há quartos disponíveis para o hóspede, de acordo com a categoria (solteiro ou familiar). Caso haja um quarto disponível, o número do quarto é atribuído ao hóspede.
 
-```bash
-gcc -o calculadora_media main.c
-Execução
-Para executar o programa, use:
-
-./calculadora_media
-Funcionamento
-O programa funciona da seguinte maneira:
-
-1- O usuário insere números um de cada vez.
-2- O usuário pode continuar inserindo números até decidir parar, digitando 'N' ou 'n'.
-3- O programa calcula a média dos números inseridos.
-4= O programa separa os números em dois grupos: menores que a média e maiores ou iguais à média.
-5- O programa exibe os números nos dois grupos e a média calculada.
-
-Contribuição
-Sinta-se à vontade para contribuir com este projeto, enviando um pull request ou abrindo uma issue no GitHub.
+Ao escolher a opção de check-out, o programa solicita o número do quarto a ser encerrado e chama a função "check_out" para calcular o valor a ser pago pelo hóspede e liberar o quarto. A função "check_out" percorre o vetor de hospedes procurando pelo número do quarto informado e, quando encontra, calcula o valor a ser pago de acordo com a categoria do hóspede, quantidade de acompanhantes e tempo de permanência. Em seguida, exibe as informações do hóspede e libera o quarto, alterando o status para livre.
